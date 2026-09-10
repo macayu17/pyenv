@@ -25,6 +25,7 @@ jobs:
         env:
           PYTHON_CONFIGURE_OPTS: --enable-optimizations
         run: |
+          VERSION="${VERSION%%:*}"
           entry="$(./bin/pyenv binary package-name "$VERSION")"
           echo "entry=$entry" >> "$GITHUB_ENV"
           mkdir dist
